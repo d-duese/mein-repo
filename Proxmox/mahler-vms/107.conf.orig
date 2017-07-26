@@ -1,0 +1,31 @@
+balloon: 512
+bootdisk: virtio0
+cores: 2
+ide2: none,media=cdrom
+memory: 2048
+name: dienste
+net0: virtio=82:06:F6:DD:48:D5,bridge=vmbr0
+onboot: 1
+ostype: l26
+parent: EcoDMS1205liz
+sockets: 1
+usb0: host=5-1
+virtio0: local:107/vm-107-disk-1.qcow2,size=4G
+
+[EcoDMS1205liz]
+#EcoDMS 12.05 mit liz
+balloon: 512
+bootdisk: virtio0
+cores: 2
+ide2: none,media=cdrom
+machine: pc-i440fx-2.6
+memory: 2048
+name: dienste
+net0: virtio=82:06:F6:DD:48:D5,bridge=vmbr0
+onboot: 1
+ostype: l26
+snaptime: 1483172810
+sockets: 1
+usb0: host=5-1
+virtio0: local:107/vm-107-disk-1.qcow2,size=4G
+vmstate: local:107/vm-107-state-EcoDMS1205liz.raw
