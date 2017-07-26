@@ -1,0 +1,191 @@
+login as: root
+Authenticating with public key "(d-duese) Daniel Toschke" from agent
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+root@map:~# /root/certbot/letsencrypt-auto -d ffov.de -d map.ffov.de -d map.freifunk-ostvest.de renew && service nginx reload^C
+root@map:~# /root/certbot/letsencrypt-auto -d map.ffov.de -d map.freifunk-ostvest.de certonly && service nginx reload
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Failed to find executable apache2ctl in PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+How would you like to authenticate with the ACME CA?
+-------------------------------------------------------------------------------
+1: Spin up a temporary webserver (standalone)
+2: Place files in webroot directory (webroot)
+-------------------------------------------------------------------------------
+Select the appropriate number [1-2] then [enter] (press 'c' to cancel): 1
+Cert is due for renewal, auto-renewing...
+Renewing an existing certificate
+Performing the following challenges:
+tls-sni-01 challenge for map.ffov.de
+tls-sni-01 challenge for map.freifunk-ostvest.de
+Cleaning up challenges
+Problem binding to port 443: Could not bind to IPv4 or IPv6.
+root@map:~# /root/certbot/letsencrypt-auto -d map.ffov.de -d map.freifunk-ostvest.de certonly
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Failed to find executable apache2ctl in PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+How would you like to authenticate with the ACME CA?
+-------------------------------------------------------------------------------
+1: Spin up a temporary webserver (standalone)
+2: Place files in webroot directory (webroot)
+-------------------------------------------------------------------------------
+Select the appropriate number [1-2] then [enter] (press 'c' to cancel): 2
+Cert is due for renewal, auto-renewing...
+Renewing an existing certificate
+Performing the following challenges:
+http-01 challenge for map.ffov.de
+http-01 challenge for map.freifunk-ostvest.de
+
+Select the webroot for map.ffov.de:
+-------------------------------------------------------------------------------
+1: Enter a new webroot
+-------------------------------------------------------------------------------
+Press 1 [enter] to confirm the selection (press 'c' to cancel): 1
+Input the webroot for map.ffov.de: (Enter 'c' to cancel):
+
+-------------------------------------------------------------------------------
+ does not exist or is not a directory
+-------------------------------------------------------------------------------
+Input the webroot for map.ffov.de: (Enter 'c' to cancel):
+
+-------------------------------------------------------------------------------
+ does not exist or is not a directory
+-------------------------------------------------------------------------------
+Input the webroot for map.ffov.de: (Enter 'c' to cancel):c
+
+Select the webroot for map.ffov.de:
+-------------------------------------------------------------------------------
+1: Enter a new webroot
+-------------------------------------------------------------------------------
+Press 1 [enter] to confirm the selection (press 'c' to cancel): c
+Cleaning up challenges
+Every requested domain must have a webroot when using the webroot plugin.
+root@map:~# /root/certbot/letsencrypt-auto -d map.ffov.de -d map.freifunk-ostvest.de renew
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Currently, the renew verb is capable of either renewing all installed certificates that are due to be renewed or renewing a single certificate specified by its name. If you would like to renew specific certificates by their domains, use the certonly command. The renew verb may provide other options for selecting certificates to renew in the future.
+root@map:~# service nginx restart
+root@map:~# /root/certbot/letsencrypt-auto -d map.ffov.de -d map.freifunk-ostvest.de certonly
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Failed to find executable apache2ctl in PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+How would you like to authenticate with the ACME CA?
+-------------------------------------------------------------------------------
+1: Spin up a temporary webserver (standalone)
+2: Place files in webroot directory (webroot)
+-------------------------------------------------------------------------------
+Select the appropriate number [1-2] then [enter] (press 'c' to cancel): 1
+Cert is due for renewal, auto-renewing...
+Renewing an existing certificate
+Performing the following challenges:
+tls-sni-01 challenge for map.ffov.de
+tls-sni-01 challenge for map.freifunk-ostvest.de
+Cleaning up challenges
+Problem binding to port 443: Could not bind to IPv4 or IPv6.
+root@map:~# service nginx stop
+root@map:~# service nginx start
+root@map:~# /root/certbot/letsencrypt-auto -d map.ffov.de -d map.freifunk-ostvest.de certonly^C
+root@map:~# /root/certbot/letsencrypt-auto --nginx -d map.ffov.de -d map.freifunk-ostvest.de certonly
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Cert is due for renewal, auto-renewing...
+Renewing an existing certificate
+Performing the following challenges:
+tls-sni-01 challenge for map.ffov.de
+tls-sni-01 challenge for map.freifunk-ostvest.de
+Cleaning up challenges
+Cannot find a VirtualHost matching domain map.freifunk-ostvest.de.
+root@map:~# ^C
+root@map:~# /root/certbot/letsencrypt-auto --nginx -d map.ffov.de -d map.freifunk-ostvest.de certonly && service nginx restart
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Cert is due for renewal, auto-renewing...
+Renewing an existing certificate
+Performing the following challenges:
+tls-sni-01 challenge for map.ffov.de
+tls-sni-01 challenge for map.freifunk-ostvest.de
+Cleaning up challenges
+Cannot find a VirtualHost matching domain map.freifunk-ostvest.de.
+root@map:~# /root/certbot/letsencrypt-auto --nginx -d map.ffov.de -d map.freifunk-ostvest.de certonly && service nginx restart^C
+root@map:~# /root/certbot/letsencrypt-auto --nginx -d map.ffov.de certonly && service nginx restart
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Obtaining a new certificate
+Performing the following challenges:
+tls-sni-01 challenge for map.ffov.de
+Waiting for verification...
+Cleaning up challenges
+
+IMPORTANT NOTES:
+ - Congratulations! Your certificate and chain have been saved at
+   /etc/letsencrypt/live/map.ffov.de-0001/fullchain.pem. Your cert
+   will expire on 2017-09-10. To obtain a new or tweaked version of
+   this certificate in the future, simply run letsencrypt-auto again.
+   To non-interactively renew *all* of your certificates, run
+   "letsencrypt-auto renew"
+ - If you like Certbot, please consider supporting our work by:
+
+   Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
+   Donating to EFF:                    https://eff.org/donate-le
+
+root@map:~# /root/certbot/letsencrypt-auto --nginx -d map.ffov.de renew && service nginx restart
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Currently, the renew verb is capable of either renewing all installed certificates that are due to be renewed or renewing a single certificate specified by its name. If you would like to renew specific certificates by their domains, use the certonly command. The renew verb may provide other options for selecting certificates to renew in the future.
+root@map:~# /root/certbot/letsencrypt-auto --nginx -d map.ffov.de -d map.freifunk-ostvest.de renew && service nginx restart
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Currently, the renew verb is capable of either renewing all installed certificates that are due to be renewed or renewing a single certificate specified by its name. If you would like to renew specific certificates by their domains, use the certonly command. The renew verb may provide other options for selecting certificates to renew in the future.
+root@map:~# /root/certbot/letsencrypt-auto --nginx --standalone -d map.ffov.de -d map.freifunk-ostvest.de certonly && service nginx restart
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Could not choose appropriate plugin: Too many flags setting configurators/installers/authenticators 'nginx' -> 'standalone'
+Too many flags setting configurators/installers/authenticators 'nginx' -> 'standalone'
+root@map:~# /root/certbot/letsencrypt-auto --nginx -d map.ffov.de -d map.freifunk-ostvest.de certonly --pre-hook "service nginx stop" --post-hook "service nginx start"
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Cert is due for renewal, auto-renewing...
+Running pre-hook command: service nginx stop
+Renewing an existing certificate
+Performing the following challenges:
+tls-sni-01 challenge for map.ffov.de
+tls-sni-01 challenge for map.freifunk-ostvest.de
+Cleaning up challenges
+nginx: [error] open() "/run/nginx.pid" failed (2: No such file or directory)
+Running post-hook command: service nginx start
+Hook command "service nginx start" returned error code 1
+Error output from service:
+Job for nginx.service failed. See 'systemctl status nginx.service' and 'journalctl -xn' for details.
+
+Cannot find a VirtualHost matching domain map.freifunk-ostvest.de.
+root@map:~# /root/certbot/letsencrypt-auto --nginx -d map.ffov.de -d map.freifunk-ostvest.de renew
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Currently, the renew verb is capable of either renewing all installed certificates that are due to be renewed or renewing a single certificate specified by its name. If you would like to renew specific certificates by their domains, use the certonly command. The renew verb may provide other options for selecting certificates to renew in the future.
+root@map:~# /root/certbot/letsencrypt-auto --nginx --webroot --webroot-path=/srv -d map.ffov.de -d map.freifunk-ostvest.de renew
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Currently, the renew verb is capable of either renewing all installed certificates that are due to be renewed or renewing a single certificate specified by its name. If you would like to renew specific certificates by their domains, use the certonly command. The renew verb may provide other options for selecting certificates to renew in the future.
+root@map:~# /root/certbot/letsencrypt-auto --nginx --webroot --webroot-path=/srv/ -d map.ffov.de -d map.freifunk-ostvest.de renew
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Currently, the renew verb is capable of either renewing all installed certificates that are due to be renewed or renewing a single certificate specified by its name. If you would like to renew specific certificates by their domains, use the certonly command. The renew verb may provide other options for selecting certificates to renew in the future.
+root@map:~# /root/certbot/letsencrypt-auto --nginx --webroot --webroot-path=/srv/ -d map.ffov.de -d map.freifunk-ostvest.de certonly
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Could not choose appropriate plugin: Too many flags setting configurators/installers/authenticators 'nginx' -> 'webroot'
+Too many flags setting configurators/installers/authenticators 'nginx' -> 'webroot'
+root@map:~# /root/certbot/letsencrypt-auto --nginx --webroot --webroot-path=/srv/ -d map.ffov.de -d map.freifunk-ostvest.de --renew
+usage:
+  letsencrypt-auto [SUBCOMMAND] [options] [-d DOMAIN] [-d DOMAIN] ...
+
+Certbot can obtain and install HTTPS/TLS/SSL certificates.  By default,
+it will attempt to use a webserver both for obtaining and installing the
+certificate.
+certbot: error: ambiguous option: --renew could match --renew-by-default, --renew-with-new-domains, --renew-hook
+root@map:~# /root/certbot/letsencrypt-auto --nginx --webroot --webroot-path=/srv/ -d map.ffov.de -d map.freifunk-ostvest.de renew && service nginx restart
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Currently, the renew verb is capable of either renewing all installed certificates that are due to be renewed or renewing a single certificate specified by its name. If you would like to renew specific certificates by their domains, use the certonly command. The renew verb may provide other options for selecting certificates to renew in the future.
+root@map:~# service nginx reload
+Job for nginx.service failed. See 'systemctl status nginx.service' and 'journalctl -xn' for details.
+root@map:~# /root/certbot/letsencrypt-auto --nginx --webroot -d map.ffov.de -d map.freifunk-ostvest.de renew && service nginx restart
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Currently, the renew verb is capable of either renewing all installed certificates that are due to be renewed or renewing a single certificate specified by its name. If you would like to renew specific certificates by their domains, use the certonly command. The renew verb may provide other options for selecting certificates to renew in the future.
+root@map:~# /root/certbot/letsencrypt-auto --nginx --webroot -d map.ffov.de -d map.freifunk-ostvest.de certonly && service nginx restart
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Could not choose appropriate plugin: Too many flags setting configurators/installers/authenticators 'nginx' -> 'webroot'
+Too many flags setting configurators/installers/authenticators 'nginx' -> 'webroot'
+root@map:~#
