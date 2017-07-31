@@ -1,1 +1,4 @@
 apt-get purge rpcbind
+
+# Falls man es auf einer Proxmox Kiste versehentlich gemacht hat
+apt-get install proxmox-ve
