@@ -59,3 +59,10 @@ Firmware bauen:
  ./build_all.sh -d Domäne-01 -d Domäne-02 -d Domäne-03 -d Domäne-04 -d Domäne-05 -d Domäne-06 -d Domäne-07 -d Domäne-08 v2016.2.6 0.0.1
 
 
+Tunneldigger auf gw stoppen:
+systemctl stop tunneldigger@*.service
+
+Bird einschalten
+
+systemctl enable bird.service
+systemctl enable bird6.service
