@@ -66,3 +66,7 @@ Bird einschalten
 
 systemctl enable bird.service
 systemctl enable bird6.service
+
+
+jo das ist das baby von simon... dafür braucht ihr aber polygone von den orten...
+also sowas: https://github.com/FreiFunkMuenster/md-fw-dl/blob/master/shapes/domaene01.geojson
