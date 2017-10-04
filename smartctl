@@ -1,0 +1,430 @@
+login as: root
+Authenticating with public key "(d-duese) Daniel Toschke" from agent
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Tue Oct  3 16:24:11 2017 from 46lap-duese.fritz.box
+root@pve:~# smartctl
+smartctl 6.6 2016-05-31 r4324 [x86_64-linux-4.4.35-1-pve] (local build)
+Copyright (C) 2002-16, Bruce Allen, Christian Franke, www.smartmontools.org
+
+ERROR: smartctl requires a device name as the final command-line argument.
+
+
+Use smartctl -h to get a usage summary
+
+root@pve:~# smartctl -a
+smartctl 6.6 2016-05-31 r4324 [x86_64-linux-4.4.35-1-pve] (local build)
+Copyright (C) 2002-16, Bruce Allen, Christian Franke, www.smartmontools.org
+
+ERROR: smartctl requires a device name as the final command-line argument.
+
+
+Use smartctl -h to get a usage summary
+
+root@pve:~# smartctl -h
+smartctl 6.6 2016-05-31 r4324 [x86_64-linux-4.4.35-1-pve] (local build)
+Copyright (C) 2002-16, Bruce Allen, Christian Franke, www.smartmontools.org
+
+Usage: smartctl [options] device
+
+============================================ SHOW INFORMATION OPTIONS =====
+
+  -h, --help, --usage
+         Display this help and exit
+
+  -V, --version, --copyright, --license
+         Print license, copyright, and version information and exit
+
+  -i, --info
+         Show identity information for device
+
+  --identify[=[w][nvb]]
+         Show words and bits from IDENTIFY DEVICE data                (ATA)
+
+  -g NAME, --get=NAME
+        Get device setting: all, aam, apm, lookahead, security, wcache, rcache, wcreorder
+
+  -a, --all
+         Show all SMART information for device
+
+  -x, --xall
+         Show all information for device
+
+  --scan
+         Scan for devices
+
+  --scan-open
+         Scan for devices and try to open each device
+
+================================== SMARTCTL RUN-TIME BEHAVIOR OPTIONS =====
+
+  -q TYPE, --quietmode=TYPE                                           (ATA)
+         Set smartctl quiet mode to one of: errorsonly, silent, noserial
+
+  -d TYPE, --device=TYPE
+         Specify device type to one of: ata, scsi, nvme[,NSID], sat[,auto][,N][+TYPE], usbcypress[,X], usbjmicron[,p][,x][,N], usbprolific, usbsunplus, marvell, areca,N/E, 3ware,N, hpt,L/M/N, megaraid,N, aacraid,H,L,ID, cciss,N, auto, test
+
+  -T TYPE, --tolerance=TYPE                                           (ATA)
+         Tolerance: normal, conservative, permissive, verypermissive
+
+  -b TYPE, --badsum=TYPE                                              (ATA)
+         Set action on bad checksum to one of: warn, exit, ignore
+
+  -r TYPE, --report=TYPE
+         Report transactions (see man page)
+
+  -n MODE, --nocheck=MODE                                             (ATA)
+         No check if: never, sleep, standby, idle (see man page)
+
+============================== DEVICE FEATURE ENABLE/DISABLE COMMANDS =====
+
+  -s VALUE, --smart=VALUE
+        Enable/disable SMART on device (on/off)
+
+  -o VALUE, --offlineauto=VALUE                                       (ATA)
+        Enable/disable automatic offline testing on device (on/off)
+
+  -S VALUE, --saveauto=VALUE                                          (ATA)
+        Enable/disable Attribute autosave on device (on/off)
+
+  -s NAME[,VALUE], --set=NAME[,VALUE]
+        Enable/disable/change device setting: aam,[N|off], apm,[N|off],
+        lookahead,[on|off], security-freeze, standby,[N|off|now],
+        wcache,[on|off], rcache,[on|off], wcreorder,[on|off]
+
+======================================= READ AND DISPLAY DATA OPTIONS =====
+
+  -H, --health
+        Show device SMART health status
+
+  -c, --capabilities                                            (ATA, NVMe)
+        Show device SMART capabilities
+
+  -A, --attributes
+        Show device SMART vendor-specific Attributes and values
+
+  -f FORMAT, --format=FORMAT                                          (ATA)
+        Set output format for attributes: old, brief, hex[,id|val]
+
+  -l TYPE, --log=TYPE
+        Show device log. TYPE: error, selftest, selective, directory[,g|s],
+                               xerror[,N][,error], xselftest[,N][,selftest],
+                               background, sasphy[,reset], sataphy[,reset],
+                               scttemp[sts,hist], scttempint,N[,p],
+                               scterc[,N,M], devstat[,N], ssd,
+                               gplog,N[,RANGE], smartlog,N[,RANGE],
+                               nvmelog,N,SIZE
+
+  -v N,OPTION , --vendorattribute=N,OPTION                            (ATA)
+        Set display OPTION for vendor Attribute N (see man page)
+
+  -F TYPE, --firmwarebug=TYPE                                         (ATA)
+        Use firmware bug workaround:
+        none, nologdir, samsung, samsung2, samsung3, xerrorlba, swapid
+
+  -P TYPE, --presets=TYPE                                             (ATA)
+        Drive-specific presets: use, ignore, show, showall
+
+  -B [+]FILE, --drivedb=[+]FILE                                       (ATA)
+        Read and replace [add] drive database from FILE
+        [default is +/etc/smart_drivedb.h
+         and then    /var/lib/smartmontools/drivedb/drivedb.h]
+
+============================================ DEVICE SELF-TEST OPTIONS =====
+
+  -t TEST, --test=TEST
+        Run test. TEST: offline, short, long, conveyance, force, vendor,N,
+                        select,M-N, pending,N, afterselect,[on|off]
+
+  -C, --captive
+        Do test in captive mode (along with -t)
+
+  -X, --abort
+        Abort any non-captive test on device
+
+=================================================== SMARTCTL EXAMPLES =====
+
+  smartctl --all /dev/sda                    (Prints all SMART information)
+
+  smartctl --smart=on --offlineauto=on --saveauto=on /dev/sda
+                                              (Enables SMART on first disk)
+
+  smartctl --test=long /dev/sda          (Executes extended disk self-test)
+
+  smartctl --attributes --log=selftest --quietmode=errorsonly /dev/sda
+                                      (Prints Self-Test & Attribute errors)
+  smartctl --all --device=3ware,2 /dev/sda
+  smartctl --all --device=3ware,2 /dev/twe0
+  smartctl --all --device=3ware,2 /dev/twa0
+  smartctl --all --device=3ware,2 /dev/twl0
+          (Prints all SMART info for 3rd ATA disk on 3ware RAID controller)
+  smartctl --all --device=hpt,1/1/3 /dev/sda
+          (Prints all SMART info for the SATA disk attached to the 3rd PMPort
+           of the 1st channel on the 1st HighPoint RAID controller)
+  smartctl --all --device=areca,3/1 /dev/sg2
+          (Prints all SMART info for 3rd ATA disk of the 1st enclosure
+           on Areca RAID controller)
+
+root@pve:~# smartctl --all
+smartctl 6.6 2016-05-31 r4324 [x86_64-linux-4.4.35-1-pve] (local build)
+Copyright (C) 2002-16, Bruce Allen, Christian Franke, www.smartmontools.org
+
+ERROR: smartctl requires a device name as the final command-line argument.
+
+
+Use smartctl -h to get a usage summary
+
+root@pve:~# smartctl --all /dev/sdd
+smartctl 6.6 2016-05-31 r4324 [x86_64-linux-4.4.35-1-pve] (local build)
+Copyright (C) 2002-16, Bruce Allen, Christian Franke, www.smartmontools.org
+
+=== START OF INFORMATION SECTION ===
+Device Model:     DRVEO X1 SSD
+Serial Number:    TA16A2900234
+LU WWN Device Id: 5 000000 000000000
+Firmware Version: O1225L
+User Capacity:    480,103,981,056 bytes [480 GB]
+Sector Size:      512 bytes logical/physical
+Rotation Rate:    Solid State Device
+Device is:        Not in smartctl database [for details use: -P showall]
+ATA Version is:   ACS-2 (minor revision not indicated)
+SATA Version is:  SATA 3.1, 6.0 Gb/s (current: 6.0 Gb/s)
+Local Time is:    Wed Oct  4 09:57:03 2017 CEST
+SMART support is: Available - device has SMART capability.
+SMART support is: Enabled
+
+=== START OF READ SMART DATA SECTION ===
+SMART overall-health self-assessment test result: PASSED
+
+General SMART Values:
+Offline data collection status:  (0x00) Offline data collection activity
+                                        was never started.
+                                        Auto Offline Data Collection: Disabled.
+Self-test execution status:      (   0) The previous self-test routine completed
+                                        without error or no self-test has ever
+                                        been run.
+Total time to complete Offline
+data collection:                (    0) seconds.
+Offline data collection
+capabilities:                    (0x71) SMART execute Offline immediate.
+                                        No Auto Offline data collection support.
+                                        Suspend Offline collection upon new
+                                        command.
+                                        No Offline surface scan supported.
+                                        Self-test supported.
+                                        Conveyance Self-test supported.
+                                        Selective Self-test supported.
+SMART capabilities:            (0x0002) Does not save SMART data before
+                                        entering power-saving mode.
+                                        Supports SMART auto save timer.
+Error logging capability:        (0x01) Error logging supported.
+                                        General Purpose Logging supported.
+Short self-test routine
+recommended polling time:        (   1) minutes.
+Extended self-test routine
+recommended polling time:        (   1) minutes.
+Conveyance self-test routine
+recommended polling time:        (   1) minutes.
+SCT capabilities:              (0x003d) SCT Status supported.
+                                        SCT Error Recovery Control supported.
+                                        SCT Feature Control supported.
+                                        SCT Data Table supported.
+
+SMART Attributes Data Structure revision number: 1
+Vendor Specific SMART Attributes with Thresholds:
+ID# ATTRIBUTE_NAME          FLAG     VALUE WORST THRESH TYPE      UPDATED  WHEN_FAILED RAW_VALUE
+  1 Raw_Read_Error_Rate     0x0000   100   100   000    Old_age   Offline      -       0
+  5 Reallocated_Sector_Ct   0x0000   100   100   000    Old_age   Offline      -       19
+  9 Power_On_Hours          0x0000   100   100   000    Old_age   Offline      -       592
+ 12 Power_Cycle_Count       0x0000   100   100   000    Old_age   Offline      -       33
+160 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       0
+161 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       253
+163 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       16
+164 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       79686
+165 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       118
+166 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       2
+167 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       38
+168 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       3000
+169 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       99
+175 Program_Fail_Count_Chip 0x0000   100   100   000    Old_age   Offline      -       0
+176 Erase_Fail_Count_Chip   0x0000   100   100   000    Old_age   Offline      -       0
+177 Wear_Leveling_Count     0x0000   100   100   050    Old_age   Offline      -       137
+178 Used_Rsvd_Blk_Cnt_Chip  0x0000   100   100   000    Old_age   Offline      -       1
+181 Program_Fail_Cnt_Total  0x0000   100   100   000    Old_age   Offline      -       0
+182 Erase_Fail_Count_Total  0x0000   100   100   000    Old_age   Offline      -       0
+192 Power-Off_Retract_Count 0x0000   100   100   000    Old_age   Offline      -       6
+194 Temperature_Celsius     0x0000   100   100   000    Old_age   Offline      -       33
+195 Hardware_ECC_Recovered  0x0000   100   100   000    Old_age   Offline      -       143
+196 Reallocated_Event_Count 0x0000   100   100   016    Old_age   Offline      -       21
+197 Current_Pending_Sector  0x0000   100   100   000    Old_age   Offline      -       0
+198 Offline_Uncorrectable   0x0000   100   100   000    Old_age   Offline      -       18
+199 UDMA_CRC_Error_Count    0x0000   100   100   050    Old_age   Offline      -       0
+232 Available_Reservd_Space 0x0000   100   100   000    Old_age   Offline      -       99
+241 Total_LBAs_Written      0x0000   100   100   000    Old_age   Offline      -       282550
+242 Total_LBAs_Read         0x0000   100   100   000    Old_age   Offline      -       43897
+245 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       637488
+
+SMART Error Log Version: 1
+No Errors Logged
+
+SMART Self-test log structure revision number 1
+No self-tests have been logged.  [To run self-tests, use: smartctl -t]
+
+SMART Selective self-test log data structure revision number 1
+ SPAN  MIN_LBA  MAX_LBA  CURRENT_TEST_STATUS
+    1        0        0  Not_testing
+    2        0        0  Not_testing
+    3        0        0  Not_testing
+    4        0        0  Not_testing
+    5        0        0  Not_testing
+    6        0    65535  Read_scanning was never started
+Selective self-test flags (0x0):
+  After scanning selected spans, do NOT read-scan remainder of disk.
+If Selective self-test is pending on power-up, resume after 0 minute delay.
+
+root@pve:~# smartctl --test=long /dev/sdd
+smartctl 6.6 2016-05-31 r4324 [x86_64-linux-4.4.35-1-pve] (local build)
+Copyright (C) 2002-16, Bruce Allen, Christian Franke, www.smartmontools.org
+
+=== START OF OFFLINE IMMEDIATE AND SELF-TEST SECTION ===
+Sending command: "Execute SMART Extended self-test routine immediately in off-line mode".
+Drive command "Execute SMART Extended self-test routine immediately in off-line mode" successful.
+Testing has begun.
+Please wait 1 minutes for test to complete.
+Test will complete after Wed Oct  4 09:59:07 2017
+
+Use smartctl -X to abort test.
+root@pve:~# smartctl -i /dev/sdd
+smartctl 6.6 2016-05-31 r4324 [x86_64-linux-4.4.35-1-pve] (local build)
+Copyright (C) 2002-16, Bruce Allen, Christian Franke, www.smartmontools.org
+
+=== START OF INFORMATION SECTION ===
+Device Model:     DRVEO X1 SSD
+Serial Number:    TA16A2900234
+LU WWN Device Id: 5 000000 000000000
+Firmware Version: O1225L
+User Capacity:    480,103,981,056 bytes [480 GB]
+Sector Size:      512 bytes logical/physical
+Rotation Rate:    Solid State Device
+Device is:        Not in smartctl database [for details use: -P showall]
+ATA Version is:   ACS-2 (minor revision not indicated)
+SATA Version is:  SATA 3.1, 6.0 Gb/s (current: 6.0 Gb/s)
+Local Time is:    Wed Oct  4 09:59:32 2017 CEST
+SMART support is: Available - device has SMART capability.
+SMART support is: Enabled
+
+root@pve:~# smartctl -a /dev/sdd
+smartctl 6.6 2016-05-31 r4324 [x86_64-linux-4.4.35-1-pve] (local build)
+Copyright (C) 2002-16, Bruce Allen, Christian Franke, www.smartmontools.org
+
+=== START OF INFORMATION SECTION ===
+Device Model:     DRVEO X1 SSD
+Serial Number:    TA16A2900234
+LU WWN Device Id: 5 000000 000000000
+Firmware Version: O1225L
+User Capacity:    480,103,981,056 bytes [480 GB]
+Sector Size:      512 bytes logical/physical
+Rotation Rate:    Solid State Device
+Device is:        Not in smartctl database [for details use: -P showall]
+ATA Version is:   ACS-2 (minor revision not indicated)
+SATA Version is:  SATA 3.1, 6.0 Gb/s (current: 6.0 Gb/s)
+Local Time is:    Wed Oct  4 10:03:01 2017 CEST
+SMART support is: Available - device has SMART capability.
+SMART support is: Enabled
+
+=== START OF READ SMART DATA SECTION ===
+SMART overall-health self-assessment test result: PASSED
+
+General SMART Values:
+Offline data collection status:  (0x02) Offline data collection activity
+                                        was completed without error.
+                                        Auto Offline Data Collection: Disabled.
+Self-test execution status:      (   0) The previous self-test routine completed
+                                        without error or no self-test has ever
+                                        been run.
+Total time to complete Offline
+data collection:                (   57) seconds.
+Offline data collection
+capabilities:                    (0x71) SMART execute Offline immediate.
+                                        No Auto Offline data collection support.
+                                        Suspend Offline collection upon new
+                                        command.
+                                        No Offline surface scan supported.
+                                        Self-test supported.
+                                        Conveyance Self-test supported.
+                                        Selective Self-test supported.
+SMART capabilities:            (0x0002) Does not save SMART data before
+                                        entering power-saving mode.
+                                        Supports SMART auto save timer.
+Error logging capability:        (0x01) Error logging supported.
+                                        General Purpose Logging supported.
+Short self-test routine
+recommended polling time:        (   1) minutes.
+Extended self-test routine
+recommended polling time:        (   1) minutes.
+Conveyance self-test routine
+recommended polling time:        (   1) minutes.
+SCT capabilities:              (0x003d) SCT Status supported.
+                                        SCT Error Recovery Control supported.
+                                        SCT Feature Control supported.
+                                        SCT Data Table supported.
+
+SMART Attributes Data Structure revision number: 1
+Vendor Specific SMART Attributes with Thresholds:
+ID# ATTRIBUTE_NAME          FLAG     VALUE WORST THRESH TYPE      UPDATED  WHEN_FAILED RAW_VALUE
+  1 Raw_Read_Error_Rate     0x0000   100   100   000    Old_age   Offline      -       0
+  5 Reallocated_Sector_Ct   0x0000   100   100   000    Old_age   Offline      -       19
+  9 Power_On_Hours          0x0000   100   100   000    Old_age   Offline      -       592
+ 12 Power_Cycle_Count       0x0000   100   100   000    Old_age   Offline      -       33
+160 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       0
+161 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       253
+163 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       16
+164 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       79686
+165 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       118
+166 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       2
+167 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       38
+168 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       3000
+169 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       99
+175 Program_Fail_Count_Chip 0x0000   100   100   000    Old_age   Offline      -       0
+176 Erase_Fail_Count_Chip   0x0000   100   100   000    Old_age   Offline      -       0
+177 Wear_Leveling_Count     0x0000   100   100   050    Old_age   Offline      -       137
+178 Used_Rsvd_Blk_Cnt_Chip  0x0000   100   100   000    Old_age   Offline      -       1
+181 Program_Fail_Cnt_Total  0x0000   100   100   000    Old_age   Offline      -       0
+182 Erase_Fail_Count_Total  0x0000   100   100   000    Old_age   Offline      -       0
+192 Power-Off_Retract_Count 0x0000   100   100   000    Old_age   Offline      -       6
+194 Temperature_Celsius     0x0000   100   100   000    Old_age   Offline      -       38
+195 Hardware_ECC_Recovered  0x0000   100   100   000    Old_age   Offline      -       143
+196 Reallocated_Event_Count 0x0000   100   100   016    Old_age   Offline      -       21
+197 Current_Pending_Sector  0x0000   100   100   000    Old_age   Offline      -       0
+198 Offline_Uncorrectable   0x0000   100   100   000    Old_age   Offline      -       18
+199 UDMA_CRC_Error_Count    0x0000   100   100   050    Old_age   Offline      -       0
+232 Available_Reservd_Space 0x0000   100   100   000    Old_age   Offline      -       99
+241 Total_LBAs_Written      0x0000   100   100   000    Old_age   Offline      -       282552
+242 Total_LBAs_Read         0x0000   100   100   000    Old_age   Offline      -       43898
+245 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       637488
+
+SMART Error Log Version: 1
+No Errors Logged
+
+SMART Self-test log structure revision number 1
+Num  Test_Description    Status                  Remaining  LifeTime(hours)  LBA_of_first_error
+# 1  Extended offline    Completed without error       00%        80         -
+
+SMART Selective self-test log data structure revision number 1
+ SPAN  MIN_LBA  MAX_LBA  CURRENT_TEST_STATUS
+    1        0        0  Not_testing
+    2        0        0  Not_testing
+    3        0        0  Not_testing
+    4        0        0  Not_testing
+    5        0        0  Not_testing
+    7        0    65535  Read_scanning was completed without error
+Selective self-test flags (0x0):
+  After scanning selected spans, do NOT read-scan remainder of disk.
+If Selective self-test is pending on power-up, resume after 0 minute delay.
+
+root@pve:~#
