@@ -70,3 +70,20 @@ systemctl enable bird6.service
 
 jo das ist das baby von simon... dafür braucht ihr aber polygone von den orten...
 also sowas: https://github.com/FreiFunkMuenster/md-fw-dl/blob/master/shapes/domaene01.geojson
+
+
+hopglass stoppen:
+systemctl stop hopglass-server@default.service
+
+Marius Hellmann: Es fehlte jq. Wenn du das Script nur einmal ausgeführt hast gibt es noch ein Backup von der alten RAW.json unter /etc/hopglass-server/default/raw.old hopglass-server stoppen und die raw.old zu raw.json kopieren. Dann wieder starten.
+
+Marius Hellmann: Noch dazu braucht delnode die Knoten ID und nicht den Hostnamen. Hostnamen sind nicht eindeutig.
+
+
+Knoten löschen mit Knoten ID
+/bin/bash delnode 246511bf6a54
+
+apt-get install jq
+muß dazu installiert sein
+
+
